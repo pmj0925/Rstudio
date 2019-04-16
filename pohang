@@ -1,0 +1,10 @@
+fuel <- data.frame(f1=c("c", "d", "e", "p", "r"),
+                        price_f1 =c(2.35, 2.38, 2.11, 2.76, 2.22),
+                        stringsAsFactors = F)
+fuel
+
+mpg <- as.data.frame(ggplot2::mpg)
+mpg <- left_join(mpg, fuel, by = "f1")
+mpg %>%
+  select(model, f1, price_f1) %>%
+  head(5)
